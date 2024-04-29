@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\VinylMixRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use PhpParser\Node\Expr\Cast\String_;
 
 #[ORM\Entity(repositoryClass: VinylMixRepository::class)]
 class VinylMix
@@ -113,5 +114,20 @@ class VinylMix
         $this->Vote = $Vote;
 
         return $this;
+    }
+
+    public function getVotesString(): String
+    {
+        $prefix = ($this->Vote >= 0) ? '+' : '-';
+        return sprintf('%s %d', $prefix, abs($this->Vote));
+    }
+
+    public function getImageUrl(int $width): string
+    {
+        return sprintf(
+            'https://picsum.photos/id/%d/%d',
+            ($this->getId() + 50) % 1000,
+            $width
+        );
     }
 }
