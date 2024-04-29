@@ -26,7 +26,10 @@
 						<div class="mixed-vinyl-container p-3 text-center">
 							<img src="{{mix.getImageUrl(300)}}" alt="Square placeholder img">
 							<p class="mt-2">
-								<strong>{{ mix.title }}</strong>
+								<a href="{{ path('app_mix_show', { id: mix.id }) }}" class="mixed-vinyl-container p-3 text-center">
+
+									<strong>{{ mix.title }}</strong>
+								</a>
 							</p>
 							<span>{{ mix.trackCount }}
 								Tracks</span>
@@ -35,11 +38,11 @@
 							|
 							<span>{{ mix.createdAt|ago }}</span>
 							<span>{{mix.getVotesString()}}</span>
-
-						</div>
+						</p>
 					</div>
-				{% endfor %}
-			</div>
+				</div>
+
+			{% endfor %}
 		</div>
 	</div>
-{% endblock %}
+</div>{% endblock %}
