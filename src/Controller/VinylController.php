@@ -34,7 +34,7 @@ class VinylController extends AbstractController
     {
         $genre = $slug ? u(str_replace("-", " ", $slug))->title(true) : null;
         $mixRepository = $entityManager->getRepository(VinylMix::class);
-        $mixes = $mixRepository->findBy([], ['Vote' => 'DESC']);
+        $mixes = $mixRepository->findAllOrderedByVotes($slug);
         return $this->render('vinyl/browse.html.twig', [
             'genre' => $genre,
             'mixes' => $mixes,
