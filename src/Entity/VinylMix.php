@@ -130,4 +130,13 @@ class VinylMix
             $width
         );
     }
+
+    public function upVote(): void
+    {
+        $this->Vote++;
+    }
+    public function downVote(): void
+    {
+        $this->Vote--;
+    }
 }
