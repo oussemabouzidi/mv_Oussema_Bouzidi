@@ -1,0 +1,3 @@
+framework:
+  mailer:
+    dsn: "smtp://bouzidioussema16@gmail.com:16juin20031920@smtp.gmail.com:465?encryption=ssl&auth_mode=login"
